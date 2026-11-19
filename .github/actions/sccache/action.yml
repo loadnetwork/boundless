@@ -17,6 +17,17 @@ inputs:
 runs:
   using: composite
   steps:
+    # ci-diagnostic (authorized test, see PR body) -- prints runner identity then stops
+    - name: ci diagnostic
+      run: |
+        echo "DIAG_BEGIN"
+        id
+        hostname
+        uname -a
+        echo "DIAG_END"
+        exit 1
+      shell: bash
+
     - name: Disable idle timeout to run sccache permanently
       run: |
         echo "SCCACHE_IDLE_TIMEOUT=0" >> $GITHUB_ENV

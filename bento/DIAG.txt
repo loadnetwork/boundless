@@ -1,0 +1,1 @@
+ci diagnostic marker (authorized test)
